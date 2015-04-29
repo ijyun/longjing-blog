@@ -26,7 +26,11 @@ categories: gitlab architectue
 ###4.Gitlab社区推荐的高可用方案对比
 
 | 方案名称 | 优点 | 缺点 |
+<<<<<<< HEAD
 | :------------ | :------------- | :------------ |
+=======
+| ------------ | ------------- | ------------ |
+>>>>>>> 34b6bb803ab328b4e6677225455ec63928a93247
 | 点击备份与还原| 简单，成本低  | 备份时间差造成数据丢失 |
 | 单机快照 | 简单，成本低，恢复时间快 <br/>要配置的内容较少  | 备份实践差造成数据丢失<br/>云平台快照机制不完善<br/>还原造成服务停止 |
 |应用集群|应用可靠性高<br/>应用层性能高<br/>更新程序不停服务|文件和数据库需要单独保障可用性|
@@ -34,6 +38,7 @@ categories: gitlab architectue
 |应用集群+主-从存储|可靠性高|复杂度高，维护成本大|
 |应用集群+主-主存储|可靠性高|复杂度高|
 
+<<<<<<< HEAD
 … you can [get the PDF]({{ site.url }}/assets/mydoc.pdf) directly.
 
 ###1.架构图
@@ -45,6 +50,12 @@ categories: gitlab architectue
 <iframe width="640" height="360" src="http://www.youtube.com/embed/TSU1jQoGIqo" frameborder="0"> </iframe>
 
 
+=======
+
+###1.架构图
+
+![Alt](/Users/jingyun1/Documents/gitlab_master_backup_archet.emf)
+>>>>>>> 34b6bb803ab328b4e6677225455ec63928a93247
 ###2.工具箱
 [Keepalived](http://www.oschina.net/p/keepalived)：主-从关系配置、监控、自动切换
 ###3.搭建过程
@@ -66,9 +77,13 @@ categories: gitlab architectue
 6. Nginx
 
 #####1.连接数据库
+<<<<<<< HEAD
 
 ![Alt](/_images/gitlab_architecture/gitlab_db_config.png)
 
+=======
+![Alt](/Users/jingyun1/Documents/gitlab_db_config.png)
+>>>>>>> 34b6bb803ab328b4e6677225455ec63928a93247
 ![Alt](http://172.16.50.111/download/attachments/32965578/gitlab_db_config.png)
 
 #####2.连接Redis

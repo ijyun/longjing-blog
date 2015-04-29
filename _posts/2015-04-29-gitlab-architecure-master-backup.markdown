@@ -66,7 +66,7 @@ categories: gitlab architectue
 
 #####1.连接数据库
 
-![Alt](/_images/gitlab_architecture/gitlab_db_config.png)
+![Alt](https://github.com/ijyun/ijyun.github.com/blob/master/_images/gitlab_architecture/gitlab_db_config.png)
 
 ![Alt](http://172.16.50.111/download/attachments/32965578/gitlab_db_config.png)
 

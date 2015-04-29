@@ -38,7 +38,7 @@ categories: gitlab architectue
 
 ###1.架构图
 
-![架构图](https://github.com/ijyun/ijyun.github.com/blob/master/_images/gitlab_architecture/gitlab_master_backup_archet.png?raw=true)
+![架构图](https://raw.githubusercontent.com/ijyun/ijyun.github.com/master/_images/gitlab_architecture/gitlab_master_backup_archet.png)
 
 
 <iframe width="640" height="360" src="http://www.youtube.com/embed/TSU1jQoGIqo" frameborder="0"> </iframe>

@@ -191,7 +191,8 @@
 	ol ol, ol ul {}
 	ul ul li, ul ol li,
 	ol ol li, ol ul li {}
-	li { line-height: 24px; }
+	li { line-height: 18px; }
+	ol li { line-height: 24px; }
 	ul.large li { line-height: 21px; }
 	li p { line-height: 21px; }
 

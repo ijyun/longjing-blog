@@ -2,7 +2,7 @@ Title: Pelican初体验
 Date: 2016-04-20 20:40
 Modified: 2016-04-20 20:40
 Category: 杂文
-Tags: Pelican, Python, 博客
+Tags: Pelican, Python, 博客, 2016
 Slug: use-pelican-note
 Authors: 龙井
 Summary: Pelican是基于Python的静态页面生成工具，结合Github Page用来搭建个人的技术博客很棒，这篇文章记录了我开始使用Pelican的过程和配置
@@ -129,6 +129,8 @@ Pelican是基于Python的静态页面生成工具，支持博客（Markdown、re
 
 ### Github Page
 
+[Github Page](https://pages.github.com/)是Github为用户免费提供的静态站点托管平台，只要在Github中创建仓库“username.github.io”，则会在地址http://username.github.io中显示仓库的内容。
+
 #### 手动更新
 1. 创建仓库
 
@@ -143,10 +145,17 @@ Pelican是基于Python的静态页面生成工具，支持博客（Markdown、re
 	http://ijyun.github.io/
 
 #### 自动更新
-#### 创建仓库
+##### 创建仓库
 1. 源文件仓库
+
+	git@github.com:ijyun/longjing-blog.git
+
 2. 生成网站仓库
-#### 配置Travis-CI
+
+	git@github.com:ijyun/ijyun.github.com.git
+
+##### 配置Travis-CI
+
 #### 其他方式
 1. fabric
 2. make

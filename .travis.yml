@@ -1,13 +1,14 @@
+# https://travis-ci.org/ijyun/longjing-blog
 language: python
 python:
-  - "2.7"
+    - 2.7.6
 
 install:
-  - pip install pelican
-  - pip install markdown
-# command to run tests
-script: nosetests
-  - pelican content/ -s pelicanconf.py -o ijyun.github.com/
-  # Copy the coveragerc down so coverage.py can find it.
-  - cd ijyun.github.com/
-  - ls
+    - pip install pelican
+    - pip install markdown
+    # command to run tests
+script: 
+    - pelican content/ -s pelicanconf.py -o ijyun.github.com/
+    # Copy the coveragerc down so coverage.py can find it.
+    - cd ijyun.github.com/
+    - ls

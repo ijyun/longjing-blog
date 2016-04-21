@@ -1,13 +1,26 @@
+# https://travis-ci.org/ijyun/longjing-blog
 language: python
 python:
-  - "2.7"
+    - 2.7.6
+env:
+  global:
+    - GH_REF = git@github.com:ijyun/longjing-blog.git
+    - secure = "Rvkf/UHFi1SGLHL+R6EJPtnpVNJFNg8U06SjsLGTWEtvZZGlIeAK8KKz/D582FeVvNSZZ2Pn5zWZ5Gq5r9IPjy32wd4CP8trUtim8Jg4Z9QCvBghHz8+HvJA+bo+KuN6G4Z7bD2AzdvrtK22RiiJH8qcaCRsMyC9Mb8pN5Z5trkSaK8psOkX3S6JEU7TidcfAIwPc9/YnwHZsh0RBNZD5RM6cv8Ux1xn+F7r0GkmgstqYu+gYv/RWaDPPD2tZTa73se3/WDZbRrWyK8FKAoL1VHUI+Jt9QoHdCtb+KWzfunq4Fj2d6kvC46ZkJrOFDbzBqLkj7N1GrsYyYg9+dMbL5zdhEVs0flo+hUcUznLqD3bj24JAp6elaDGExXJuztQokKiTKgH8TiDHHOwa6z6AR6GBjRpZUIWC3Z4UkpkTGB9Zy2JCa56n8+d+9nRdZzHLtuxx50YPb71fyyZhmHdr0wurl+qChH/wyigYKu6LtkboFswNGaV8/RaAzUlck/qCNhoVBCVGVRZ+a/lMwpUk5h0e2BMDNGMsvBQtnIv/B7uWX/9Yi78s1ss7RqeSWsHxiiogNlaRQ3gEFXySXS7mroWXYYWbrO14tOXh49luMH6L/WxT7CKFpLCiXez9DCTquNRNhcBt0CIG/58mVOD6k7XMOVmpuiKC2AWMe8oZM4="
 
 install:
-  - pip install pelican
-  - pip install markdown
-# command to run tests
-script: nosetests
-  - pelican content/ -s pelicanconf.py -o ijyun.github.com/
-  # Copy the coveragerc down so coverage.py can find it.
-  - cd ijyun.github.com/
-  - ls
+    - pip install pelican
+    - pip install markdown
+    # command to run tests
+#before_script:
+#    - git clone 
+script: 
+    - pelican content/ -s pelicanconf.py -o ijyun.github.com/
+
+after_script:
+    - cd ijyun.github.com/
+    - git init
+    - git config user.name "龙井"
+    - git config user.email "ijun@outlook.com"
+    - git add .
+    - git commit -m "更新博客"
+    - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages

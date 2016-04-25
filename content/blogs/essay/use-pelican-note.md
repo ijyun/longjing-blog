@@ -1,6 +1,6 @@
 Title: Pelican初体验
 Date: 2016-04-20 20:40
-Modified: 2016-04-20 20:40
+Modified: 2016-04-25 14:21
 Category: 杂文
 Tags: Pelican, Python, 博客, 2016
 Slug: use-pelican-note
@@ -20,9 +20,13 @@ Pelican是基于Python的静态页面生成工具，支持博客（Markdown、re
 [http://docs.getpelican.com](http://docs.getpelican.com/)
 
 #### 架构
+
 ##### 架构示意图
+
 ![图片](/images/essay/use-pelican-note/overall.png)
+
 ##### UML设计图
+
 ![图片](/images/essay/use-pelican-note/uml.jpg )
 
   
@@ -123,7 +127,7 @@ Pelican是基于Python的静态页面生成工具，支持博客（Markdown、re
 	注意：代码块一定要缩进
 #### 自定义404页面
 #### 注意
-	Pelican中文章按照时间排序
+Pelican中文章按照时间排序
 
 ### 3.2 发布
 
@@ -155,7 +159,69 @@ Pelican是基于Python的静态页面生成工具，支持博客（Markdown、re
 	git@github.com:ijyun/ijyun.github.com.git
 
 ##### 配置Travis-CI
+1. 配置travis-ci以便自动出发构建
+2. 安装travis命令
+	
+		:::shell
+		# on Ubuntu you need ruby dev
+		sudo apt-get install ruby1.9.1-dev
+		sudo gem install travis
 
+3. 生成Github的口令
+	
+	通过Travis-CI往Github做提交需要具有权限，在Github的Personal settings——Personal access tokens，生产token，权限范围只需要勾选repo即可。然后在源文件仓库根目录执行以下命令，生成口令加密文件
+		
+		:::shell
+		travis encrypt GH_TOKEN=LONGTOKENFROMGITHUB --add env.global
+	
+	加解密过程示意图
+	
+	![加密流程图](/images/essay/use-pelican-note/travis-encrypt-keys.png)
+	
+	Token创建官方说明
+	
+	[https://help.github.com/articles/creating-an-access-token-for-command-line-use/](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+	
+4. 在源文件仓库中创建.travis.yml文件，并配置如下内容，主要作用是在提交代码是出发travis-ci从github中下载代码，并安装Pelican，通过执行Pelican生成静态文件，再提交到静态文件仓库中
+
+		:::python
+		language: python
+		python:
+		  - 2.7.6
+		env:
+		  global:
+		  - GH_OWNER=ijyun
+		  - GH_PROJECT_NAME=ijyun.github.com
+		  - secure: **************
+		install:
+		  - pip install pelican
+		  - pip install markdown
+		before_script:
+		  - git config --global user.name "龙井"
+		  - git config --global user.email "ijun@outlook.com"
+		  - git config --global github.user ijyun
+		  # 下载博客仓库源文件
+		  - git clone https://${GH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME}
+		script:
+		  - pelican content/ -s pelicanconf.py -o ${GH_PROJECT_NAME}
+		after_success:
+		  - cd ijyun.github.com
+		  - git add -f .
+		  # 以源文件仓库的提交日志作为静态站点更新的日志
+		  - git commit -am "更新仓库："${TRAVIS_COMMIT}
+		  - git push https://${GH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} master
+
+5. 检查.travis.yml格式
+	
+	将文件内容复制到网站[http://lint.travis-ci.org/](http://lint.travis-ci.org/)进行检测
+
+
+6. 提交到源文件仓库进行构建	
+	![构建结果图](/images/essay/use-pelican-note/result.png)
+	
+参考资料：[http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/](http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/)
+
+Travis CI官方文档：[https://docs.travis-ci.com/](https://docs.travis-ci.com/)
 #### 其他方式
 1. fabric
 2. make

@@ -1,31 +1,25 @@
-# https://travis-ci.org/ijyun/longjing-blog
 language: python
 python:
-    - 2.7.6
-
+  - 2.7.6
 env:
   global:
-    - GH_REF = git@github.com:ijyun/longjing-blog.git
-    - secure = "Rvkf/UHFi1SGLHL+R6EJPtnpVNJFNg8U06SjsLGTWEtvZZGlIeAK8KKz/D582FeVvNSZZ2Pn5zWZ5Gq5r9IPjy32wd4CP8trUtim8Jg4Z9QCvBghHz8+HvJA+bo+KuN6G4Z7bD2AzdvrtK22RiiJH8qcaCRsMyC9Mb8pN5Z5trkSaK8psOkX3S6JEU7TidcfAIwPc9/YnwHZsh0RBNZD5RM6cv8Ux1xn+F7r0GkmgstqYu+gYv/RWaDPPD2tZTa73se3/WDZbRrWyK8FKAoL1VHUI+Jt9QoHdCtb+KWzfunq4Fj2d6kvC46ZkJrOFDbzBqLkj7N1GrsYyYg9+dMbL5zdhEVs0flo+hUcUznLqD3bj24JAp6elaDGExXJuztQokKiTKgH8TiDHHOwa6z6AR6GBjRpZUIWC3Z4UkpkTGB9Zy2JCa56n8+d+9nRdZzHLtuxx50YPb71fyyZhmHdr0wurl+qChH/wyigYKu6LtkboFswNGaV8/RaAzUlck/qCNhoVBCVGVRZ+a/lMwpUk5h0e2BMDNGMsvBQtnIv/B7uWX/9Yi78s1ss7RqeSWsHxiiogNlaRQ3gEFXySXS7mroWXYYWbrO14tOXh49luMH6L/WxT7CKFpLCiXez9DCTquNRNhcBt0CIG/58mVOD6k7XMOVmpuiKC2AWMe8oZM4="
-
-
-
+  - GH_OWNER=ijyun
+  - GH_PROJECT_NAME=ijyun.github.com
+  - secure: GC8ApexIzP/ff1IhQM13GIcuvfuCjoNI6fYkRhcNmw/D/XtGbHra2y0smxELUWtQI+5KXtrVdJauJzH1ARH5Fft1j2OLkaSQHW8Dmq6RziIMbdULUtlG2pt1c0Nq6pTbgCL2sAvnoa4sjSQuLXNBzDvr2hMaHvHikddfYUZIfz4CqwlurmAlSZ65bRC6P5q0UFz56y9+FakvwTHvloGiBffFIgrhTLOS1hsxot3o3uv4klyL0ogJV71HtCfWbmKqWl1JepD1wq4U0ZyGYPizJOxF8301hY9STHCjCqzCY+qaJRjDkmbl3Lbk9/ngC3he8JTRTECQ7CW2GuubppFD56WkHTGeI80UVNMQdkcJa8Hnj20H/QSiJx0EoPoSBOcL4q/lKEAcuM8wpSl37LZ/g1ZkajO0lqVd+ZSQ9eLN04qYXUGUF7wwSJ4LXSQ5tggklDIeYS68SVHY8ZfQuA9mwv1EYy5ADZVu3H9H7VEfjPpQ04+UaCqEoY/M/9c1iEvjDZcnZY0KPUlrWYFd/zJckshAZZfgSN9JdvQTnfsYKYnUE4EUH2Bh2ZGa3i5qZlKEq/g77KQevjywPNhT/8PekC9pN/uCkNvXf3+XeV0Jj7guuOKfS+yJdEvkhXfe/ts/61ezlMEv5R+7QkQQZLKSnUUC/F+pv2aJaLR6SgyYxco=
 install:
-    - pip install pelican
-    - pip install markdown
-    # command to run tests
-
-#before_script:
-#    - git clone 
-script: 
-    - pelican content/ -s pelicanconf.py -o ijyun.github.com/
-
-after_script:
-    - cd ijyun.github.com/
-    - git init
-    - git config user.name "龙井"
-    - git config user.email "ijun@outlook.com"
-    - git add .
-    - git commit -m "更新博客"
-    - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
-
+  - pip install pelican
+  - pip install markdown
+before_script:
+  - git config --global user.name "龙井"
+  - git config --global user.email "ijun@outlook.com"
+  - git config --global github.user ijyun
+  # 下载博客仓库源文件
+  - git clone https://${GH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME}
+script:
+  - pelican content/ -s pelicanconf.py -o ${GH_PROJECT_NAME}
+after_success:
+  - cd ijyun.github.com
+  - git add -f .
+  # 以源文件仓库的提交日志作为静态站点更新的日志
+  - git commit -am "更新仓库："${message}
+  - git push https://${GH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} master

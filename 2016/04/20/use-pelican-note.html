@@ -293,8 +293,10 @@ sudo gem install travis
 </pre></div>
 
 
-<p>加解密过程示意图
-<img alt="加密流程图" src="/images/essay/use-pelican-note/travis-encrypt-keys.png" /></p>
+<p>加解密过程示意图</p>
+<p><img alt="加密流程图" src="/images/essay/use-pelican-note/travis-encrypt-keys.png" /></p>
+<p>Token创建官方说明</p>
+<p><a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a></p>
 </li>
 <li>
 <p>在源文件仓库中创建.travis.yml文件，并配置如下内容，主要作用是在提交代码是出发travis-ci从github中下载代码，并安装Pelican，通过执行Pelican生成静态文件，再提交到静态文件仓库中</p>
@@ -305,7 +307,7 @@ sudo gem install travis
   <span class="k">global</span><span class="p">:</span>
   <span class="o">-</span> <span class="n">GH_OWNER</span><span class="o">=</span><span class="n">ijyun</span>
   <span class="o">-</span> <span class="n">GH_PROJECT_NAME</span><span class="o">=</span><span class="n">ijyun</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span>
-  <span class="o">-</span> <span class="n">secure</span><span class="p">:</span> <span class="n">GC8ApexIzP</span><span class="o">/</span><span class="n">ff1IhQM13GIcuvfuCjoNI6fYkRhcNmw</span><span class="o">/</span><span class="n">D</span><span class="o">/</span><span class="n">XtGbHra2y0smxELUWtQI</span><span class="o">+</span><span class="mi">5</span><span class="n">KXtrVdJauJzH1ARH5Fft1j2OLkaSQHW8Dmq6RziIMbdULUtlG2pt1c0Nq6pTbgCL2sAvnoa4sjSQuLXNBzDvr2hMaHvHikddfYUZIfz4CqwlurmAlSZ65bRC6P5q0UFz56y9</span><span class="o">+</span><span class="n">FakvwTHvloGiBffFIgrhTLOS1hsxot3o3uv4klyL0ogJV71HtCfWbmKqWl1JepD1wq4U0ZyGYPizJOxF8301hY9STHCjCqzCY</span><span class="o">+</span><span class="n">qaJRjDkmbl3Lbk9</span><span class="o">/</span><span class="n">ngC3he8JTRTECQ7CW2GuubppFD56WkHTGeI80UVNMQdkcJa8Hnj20H</span><span class="o">/</span><span class="n">QSiJx0EoPoSBOcL4q</span><span class="o">/</span><span class="n">lKEAcuM8wpSl37LZ</span><span class="o">/</span><span class="n">g1ZkajO0lqVd</span><span class="o">+</span><span class="n">ZSQ9eLN04qYXUGUF7wwSJ4LXSQ5tggklDIeYS68SVHY8ZfQuA9mwv1EYy5ADZVu3H9H7VEfjPpQ04</span><span class="o">+</span><span class="n">UaCqEoY</span><span class="o">/</span><span class="n">M</span><span class="o">/</span><span class="mi">9</span><span class="n">c1iEvjDZcnZY0KPUlrWYFd</span><span class="o">/</span><span class="n">zJckshAZZfgSN9JdvQTnfsYKYnUE4EUH2Bh2ZGa3i5qZlKEq</span><span class="o">/</span><span class="n">g77KQevjywPNhT</span><span class="o">/</span><span class="mi">8</span><span class="n">PekC9pN</span><span class="o">/</span><span class="n">uCkNvXf3</span><span class="o">+</span><span class="n">XeV0Jj7guuOKfS</span><span class="o">+</span><span class="n">yJdEvkhXfe</span><span class="o">/</span><span class="n">ts</span><span class="o">/</span><span class="mi">61</span><span class="n">ezlMEv5R</span><span class="o">+</span><span class="mi">7</span><span class="n">QkQQZLKSnUUC</span><span class="o">/</span><span class="n">F</span><span class="o">+</span><span class="n">pv2aJaLR6SgyYxco</span><span class="o">=</span>
+  <span class="o">-</span> <span class="n">secure</span><span class="p">:</span> <span class="o">**************</span>
 <span class="n">install</span><span class="p">:</span>
   <span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
   <span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span>

@@ -2,3 +2,6 @@
 [submodule "nice-blog"]
 	path = nice-blog
 	url = https://github.com/ijyun/nice-blog.git
+[submodule "ijyun.github.com"]
+	path = ijyun.github.com
+	url = https://github.com/ijyun/ijyun.github.com

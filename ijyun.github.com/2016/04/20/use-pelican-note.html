@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="zh">
+<!--<![endif]-->
+	<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="author" content="龙井">
+
+
+        <title>雨前龙井 - Pelican初体验</title>
+
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme/css/style.css">
+
+        <!-- Custom CSS -->
+        	<link rel="stylesheet" href="/theme/css/colors/blue.css" id="colors">
+
+        <!-- Code highlight color scheme -->
+            <link href="/theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Pelican" />
+        <meta name="tags" contents="Python" />
+        <meta name="tags" contents="博客" />
+        <meta name="tags" contents="2016" />
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="雨前龙井">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="/2016/04/20/use-pelican-note.html">
+	<meta property="og:title" content="Pelican初体验">
+	<meta property="og:description" content="">
+	   <meta property="og:image" content="/images/guilherme-toti.jpg">
+	<meta property="article:published_time" content="2016-04-20 20:40:00+08:00">
+	</head>
+	<body>
+		<header id="header">
+			<!-- Container -->
+			<div class="container">
+				<!-- Logo / Mobile Menu -->
+				<div class="three columns">
+					<div id="logo">
+						<h1><a href="/">雨前龙井</a></h1>
+					</div>
+				</div>
+				<!-- Navigation
+				================================================== -->
+				<div class="thirteen columns">
+					
+					<nav id="navigation" class="menu">
+						<ul id="responsive">
+
+							<li><a href="/">Home</a></li>
+
+
+							        <li><a href="/pages/about-longjing.html">Author</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- Container / End -->
+		</header>
+		<!-- Header / End -->
+		
+		<div id="content-wrapper">
+			<section id="titlebar">
+				<!-- Container -->
+				<div class="container">
+					<div class="sixteen columns">						
+						<nav id="breadcrumbs">
+							<ul>
+								<li>You are here:</li>
+								<li><a href="/">Home</a></li>
+<li><a href="/category/杂文">杂文</a></li>
+<li>Pelican初体验</li>
+							</ul>
+						</nav>
+					</div>
+
+				</div>
+				<!-- Container / End -->
+			</section>
+
+			<div class="container">
+	<div class="twelve alt columns">
+<article class="post" style="margin: 0; border: 0;">
+	
+	<div class="post-format">
+		<div class="circle"><i class="icon-pencil"></i><span></span></div>
+	</div>
+
+	<section class="post-content">
+
+		<header class="meta">
+			<h2><a href="/2016/04/20/use-pelican-note.html">Pelican初体验</a></h2>
+			<ul>
+				<li>By <a href="/author/long-jing.html">龙井</a></li>
+				<li>Wed 20 April 2016</li>
+				    <li>Updated on Mon 25 April 2016</li>
+			</ul>
+		</header>
+
+		<h2>1. 介绍</h2>
+<p>Pelican是基于Python的静态页面生成工具，支持博客（Markdown、reStructuredText）、评论、主题、语法高亮等等。Pelican是法国工程师写的，Pelican也是法语中notebook的音译。</p>
+<h4>Github地址</h4>
+<p><a href="https://github.com/getpelican/pelican">https://github.com/getpelican/pelican</a></p>
+<h4>官方文档</h4>
+<p><a href="http://docs.getpelican.com/">http://docs.getpelican.com</a></p>
+<h4>架构</h4>
+<h5>架构示意图</h5>
+<p><img alt="图片" src="/images/essay/use-pelican-note/overall.png" /></p>
+<h5>UML设计图</h5>
+<p><img alt="图片" src="/images/essay/use-pelican-note/uml.jpg" /></p>
+<h2>2. 安装</h2>
+<p>安装pelican和markdown，markdown是我选择的文档编写工具（语言），pelican还支持reStructuredText和AsciiDoc格式</p>
+<div class="highlight"><pre><span></span>pip install pelican markdown
+</pre></div>
+
+
+<p>升级pelican   </p>
+<div class="highlight"><pre><span></span>pip install --upgrade pelican
+</pre></div>
+
+
+<h2>3. 使用</h2>
+<h3>3.1 过程</h3>
+<h4>创建目录</h4>
+<div class="highlight"><pre><span></span>mkdir -p ~/projects/yoursite
+<span class="nb">cd</span> ~/projects/yoursite
+    yourproject/
+    ├── content
+    │   └── <span class="o">(</span>pages<span class="o">)</span>
+    ├── output
+    ├── develop_server.sh
+    ├── fabfile.py
+    ├── Makefile
+    ├── pelicanconf.py       <span class="c1"># Main settings file</span>
+    └── publishconf.py       <span class="c1"># Settings to use when ready to publish</span>
+</pre></div>
+
+
+<h4>快速创建博客站点</h4>
+<div class="highlight"><pre><span></span>pelican-quickstart
+</pre></div>
+
+
+<h4>创建博客文章</h4>
+<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="n">First</span> <span class="n">Review</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Review</span>
+
+<span class="n">Following</span> <span class="k">is</span> <span class="n">a</span> <span class="n">review</span> <span class="n">of</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">mechanical</span> <span class="n">keyboard</span><span class="o">.</span>
+</pre></div>
+
+
+<h4>生成站点</h4>
+<div class="highlight"><pre><span></span>pelican content
+</pre></div>
+
+
+<h4>预览站点</h4>
+<div class="highlight"><pre><span></span>cd ~/projects/yoursite/output
+python -m pelican.server
+</pre></div>
+
+
+<p>地址：http://localhost:8000/</p>
+<h3>3.2 编写技巧</h3>
+<h4>目录结构</h4>
+<div class="highlight"><pre><span></span>content/
+├── blogs
+├── downloads
+├── images
+├── pages
+└── pdfs
+    blogs
+        文章目录
+    downloads
+        zip文件目录
+    images
+        图片目录，根据分类和文章可以再拆分
+    pages
+        about.MD页面路径
+        存储不常变化的内容
+    pdfs
+        pdf文件目录
+</pre></div>
+
+
+<h4>文章配置</h4>
+<div class="highlight"><pre><span></span>Title: 凤凰项目
+Date: 2016-04-23 19:40
+Modified: 2016-04-24 19:40
+Category: 读书笔记
+Tags: DevOps, 读书笔记, 凤凰项目,专业书籍, 2016
+Slug: phoenix-project-2016-04-23 #在url中显示的地址
+Authors: 龙井  #多位作者逗号分隔
+Summary: 简介  #会作为简介显示在首页中
+</pre></div>
+
+
+<h4>图片</h4>
+<div class="highlight"><pre><span></span>![图片](/images/booknotes/cross-boundary/cross-boudary-cover.jpg)
+</pre></div>
+
+
+<h4>链接</h4>
+<div class="highlight"><pre><span></span>文件
+    [下载文件](/downloads/archive.zip)
+URL
+    [打开网页](http://192.168.33.15:8000/)
+</pre></div>
+
+
+<h4>语法高亮</h4>
+<div class="highlight"><pre><span></span>不显示行
+    :::python
+    print(&quot;The triple-colon syntax will *not* show line numbers.&quot;)
+
+显示行
+    #!python
+    print(&quot;The path-less shebang syntax *will* show line numbers.&quot;)
+
+注意：代码块一定要缩进
+</pre></div>
+
+
+<h4>自定义404页面</h4>
+<h4>注意</h4>
+<p>Pelican中文章按照时间排序</p>
+<h3>3.2 发布</h3>
+<h3>Github Page</h3>
+<p><a href="https://pages.github.com/">Github Page</a>是Github为用户免费提供的静态站点托管平台，只要在Github中创建仓库“username.github.io”，则会在地址http://username.github.io中显示仓库的内容。</p>
+<h4>手动更新</h4>
+<ol>
+<li>
+<p>创建仓库</p>
+<p>git@github.com:ijyun/ijyun.github.com.git</p>
+</li>
+<li>
+<p>推送内容</p>
+<p>将output的内容推送到仓库中</p>
+</li>
+<li>
+<p>访问地址</p>
+<p>http://ijyun.github.io/</p>
+</li>
+</ol>
+<h4>自动更新</h4>
+<h5>创建仓库</h5>
+<ol>
+<li>
+<p>源文件仓库</p>
+<p>git@github.com:ijyun/longjing-blog.git</p>
+</li>
+<li>
+<p>生成网站仓库</p>
+<p>git@github.com:ijyun/ijyun.github.com.git</p>
+</li>
+</ol>
+<h5>配置Travis-CI</h5>
+<ol>
+<li>配置travis-ci以便自动出发构建</li>
+<li>
+<p>安装travis命令</p>
+<div class="highlight"><pre><span></span><span class="c1"># on Ubuntu you need ruby dev</span>
+sudo apt-get install ruby1.9.1-dev
+sudo gem install travis
+</pre></div>
+
+
+</li>
+<li>
+<p>生成Github的口令</p>
+<p>通过Travis-CI往Github做提交需要具有权限，在Github的Personal settings——Personal access tokens，生产token，权限范围只需要勾选repo即可。然后在源文件仓库根目录执行以下命令，生成口令加密文件</p>
+<div class="highlight"><pre><span></span>travis encrypt <span class="nv">GH_TOKEN</span><span class="o">=</span>LONGTOKENFROMGITHUB --add env.global
+</pre></div>
+
+
+<p>加解密过程示意图</p>
+<p><img alt="加密流程图" src="/images/essay/use-pelican-note/travis-encrypt-keys.png" /></p>
+<p>Token创建官方说明</p>
+<p><a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a></p>
+</li>
+<li>
+<p>在源文件仓库中创建.travis.yml文件，并配置如下内容，主要作用是在提交代码是出发travis-ci从github中下载代码，并安装Pelican，通过执行Pelican生成静态文件，再提交到静态文件仓库中</p>
+<div class="highlight"><pre><span></span><span class="n">language</span><span class="p">:</span> <span class="n">python</span>
+<span class="n">python</span><span class="p">:</span>
+  <span class="o">-</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">env</span><span class="p">:</span>
+  <span class="k">global</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">GH_OWNER</span><span class="o">=</span><span class="n">ijyun</span>
+  <span class="o">-</span> <span class="n">GH_PROJECT_NAME</span><span class="o">=</span><span class="n">ijyun</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span>
+  <span class="o">-</span> <span class="n">secure</span><span class="p">:</span> <span class="o">**************</span>
+<span class="n">install</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
+  <span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span>
+<span class="n">before_script</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;龙井&quot;</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="s2">&quot;ijun@outlook.com&quot;</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">github</span><span class="o">.</span><span class="n">user</span> <span class="n">ijyun</span>
+  <span class="c1"># 下载博客仓库源文件</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="p">{</span><span class="n">GH_TOKEN</span><span class="p">}</span><span class="nd">@github.com</span><span class="o">/</span><span class="err">$</span><span class="p">{</span><span class="n">GH_OWNER</span><span class="p">}</span><span class="o">/</span><span class="err">$</span><span class="p">{</span><span class="n">GH_PROJECT_NAME</span><span class="p">}</span>
+<span class="n">script</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">pelican</span> <span class="n">content</span><span class="o">/</span> <span class="o">-</span><span class="n">s</span> <span class="n">pelicanconf</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">{</span><span class="n">GH_PROJECT_NAME</span><span class="p">}</span>
+<span class="n">after_success</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">cd</span> <span class="n">ijyun</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">add</span> <span class="o">-</span><span class="n">f</span> <span class="o">.</span>
+  <span class="c1"># 以源文件仓库的提交日志作为静态站点更新的日志</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">am</span> <span class="s2">&quot;更新仓库：&quot;</span><span class="err">$</span><span class="p">{</span><span class="n">TRAVIS_COMMIT</span><span class="p">}</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">push</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="p">{</span><span class="n">GH_TOKEN</span><span class="p">}</span><span class="nd">@github.com</span><span class="o">/</span><span class="err">$</span><span class="p">{</span><span class="n">GH_OWNER</span><span class="p">}</span><span class="o">/</span><span class="err">$</span><span class="p">{</span><span class="n">GH_PROJECT_NAME</span><span class="p">}</span> <span class="n">master</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>检查.travis.yml格式</p>
+<p>将文件内容复制到网站<a href="http://lint.travis-ci.org/">http://lint.travis-ci.org/</a>进行检测</p>
+</li>
+<li>
+<p>提交到源文件仓库进行构建 
+    <img alt="构建结果图" src="/images/essay/use-pelican-note/result.png" /></p>
+</li>
+</ol>
+<p>参考资料：<a href="http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/">http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/</a></p>
+<p>Travis CI官方文档：<a href="https://docs.travis-ci.com/">https://docs.travis-ci.com/</a></p>
+<h4>其他方式</h4>
+<ol>
+<li>fabric</li>
+<li>make</li>
+</ol>
+<h3>3.3 主题</h3>
+<h4>主题下载地址</h4>
+<p><a href="http://www.pelicanthemes.com/">http://www.pelicanthemes.com/</a></p>
+<h4>选用主题</h4>
+<ol>
+<li>我选择的主题：nice-blog</li>
+<li>配置方式：THEME = "/vagrant/longjing/nice-blog"</li>
+</ol>
+<h2>配置</h2>
+<p>配置文件：pelicanconf.py</p>
+<ol>
+<li>
+<p>配置静态文件目录 </p>
+<p>STATIC_PATHS = ['images', 'pdfs','blog', 'downloads']</p>
+</li>
+<li>
+<p>配置文章存储路径和URL显示</p>
+<p>ARTICLE_SAVE_AS = '{date:%Y/%m/%d}/{slug}.html'</p>
+<p>ARTICLE_URL = '{date:%Y/%m/%d}/{slug}.html'</p>
+</li>
+<li>
+<p>配置文章目录</p>
+<p>ARTICLE_PATHS = ['blogs']</p>
+</li>
+<li>
+<p>配置主题</p>
+<p>THEME = "/vagrant/longjing/nice-blog"</p>
+</li>
+<li>
+<p>摘要显示长度配置</p>
+<p>SUMMARY_MAX_LENGTH</p>
+</li>
+<li>
+<p>pages目录下的文章是否在导航菜单中显示</p>
+<p>DISPLAY_PAGES_ON_MENU # 缺省值为True    </p>
+</li>
+<li>
+<p>社交网站 </p>
+<p>SOCIAL = (('github', 'https://github.com/ijyun'),)</p>
+</li>
+</ol>
+<p>参考文档：<a href="https://github.com/getpelican/pelican/wiki/Tutorials">https://github.com/getpelican/pelican/wiki/Tutorials</a></p>
+<h2>附：</h2>
+<p>Continue reading the other documentation sections for more detail, and check out the Pelican wiki’s <a href="https://github.com/getpelican/pelican/wiki/Tutorials">Tutorials</a> page for links to community-published tutorials.</p>
+
+		    <div class="tags">
+		        <p>tags: <a href="/tag/pelican.html">Pelican</a><a href="/tag/python.html">Python</a><a href="/tag/bo-ke.html">博客</a><a href="/tag/2016.html">2016</a></p>
+		    </div>
+
+<div class="sharing">
+</div>
+<hr>
+		
+	</section>
+	<div class="clearfix"></div>
+
+</article>
+
+	</div>
+
+	<!-- Sidebar -->
+	<div class="four columns">
+		<!-- About  -->
+		<div class="widget no-mg-top">
+			<h3 class="headline">About</h3><span class="line"></span><div class="clearfix"></div>
+			<p>这里是龙井的博客，内容包括开发技术、持续集成、读书笔记、DevOps、互联网思维、精益、Linux等等</p>
+		</div>
+
+		<!-- Categories -->
+		<div class="widget">
+			<h3 class="headline">Categories</h3><span class="line"></span><div class="clearfix"></div>
+			<nav class="categories">
+				<ul>
+					    <li><a href="/category/chi-xu-ji-cheng.html">持续集成</a></li>
+					    <li><a href="/category/du-shu-bi-ji.html">读书笔记</a></li>
+					    <li><a href="/category/git.html">Git</a></li>
+					    <li class="active"><a href="/category/za-wen.html">杂文</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<!-- Tags -->
+		<div class="widget">
+			<h3 class="headline">Tags</h3><span class="line"></span><div class="clearfix"></div>
+			<nav class="tags">				    <a href="/tag/2016.html">2016</a>
+				    <a href="/tag/bo-ke.html">博客</a>
+				    <a href="/tag/chi-xu-ji-cheng.html">持续集成</a>
+				    <a href="/tag/devops.html">DevOps</a>
+				    <a href="/tag/du-shu-bi-ji.html">读书笔记</a>
+				    <a href="/tag/feng-huang-xiang-mu.html">凤凰项目</a>
+				    <a href="/tag/gong-cheng-shi-wen-hua.html">工程师文化</a>
+				    <a href="/tag/ji-zhu.html">技术</a>
+				    <a href="/tag/pelican.html">Pelican</a>
+				    <a href="/tag/publishing.html">publishing</a>
+				    <a href="/tag/python.html">Python</a>
+				    <a href="/tag/ren-sheng.html">人生</a>
+				    <a href="/tag/travis.html">Travis</a>
+				    <a href="/tag/zhuan-ye-shu-ji.html">专业书籍</a>
+			</nav>
+		</div>
+	</div>
+			</div>
+			<!-- Container / End -->
+		</div>
+		<!-- Content Wrapper / End -->
+
+
+		<div id="footer-bottom">
+			<!-- Container -->
+			<div class="container">
+				<div class="eight columns">Blog powered by <a href="http://getpelican.com">Pelican</a></div>
+					<div class="eight columns">
+						<ul class="social-icons-footer">
+								<li>
+									<a href="https://github.com/ijyun" class="tooltip top" title="github">
+										<i class="icon-github"></i>
+									</a>
+								</li>
+							<li><a href="/None" class="tooltip top" title="RSS"><i class="icon-rss"></i></a></li>
+						</ul>
+					</div>
+			</div>
+			<!-- Container / End -->
+		</div>
+		<!-- Footer Bottom / End -->
+		
+	<!-- Javascripts -->
+	<script src="/theme/js/jquery.min.js"></script>
+	</body>
+</html>

@@ -9,7 +9,11 @@ Summary: Pelican是基于Python的静态页面生成工具，结合Github Page�
 
 
 ## 1. 介绍
-Pelican是基于Python的静态页面生成工具，支持博客（Markdown、reStructuredText）、评论、主题、语法高亮等等。Pelican是法国工程师写的，Pelican也是法语中notebook的音译。
+
+
+Pelican是基于Python的静态页面生成工具，支持博客（Markdown、reStructuredText）、评论、主题、语法高亮等等。
+
+Pelican是法国工程师写的，Pelican也是法语中notebook的音译。
 
 #### Github地址
 

@@ -6,7 +6,7 @@ Tags: Scrum,站立会议,文化,翻译,Martin Fowler,2016
 Slug: its-not-just-standing-up
 Authors: 龙井
 Summary: DevOps元素周期表是XebiaLabs整理发布的，2015年发布了V1版本，后续应该会持续更新，DevOps涉及持续交付、技术运营、云计算、组织协作等等方方面面，所以相关工具也会很多，工具也是大家在实践DevOps过程中最容易入手的，但是DevOps绝不仅仅是自动化工具而已，高效协作的组织、责任共担的文化才是DevOps真正要解决的问题。
-Image: /devops/devops-tool-periodic-table/devops-tool-periodic-table.png
+Image: /agile/its-not-just-standing-up/standingup.jpg
 
 
 每日站立会议成为了很多团队的通用仪式，尤其是在敏捷软件开发中。然而，到底是高效的站立会议还是浪费时间，这其中有一些微妙的细节。

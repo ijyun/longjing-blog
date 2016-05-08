@@ -1,0 +1,10 @@
+output/
+pelican-themes/
+publishconf.py
+*.pyc
+Makefile
+fabfile.py 
+ijyun.github.com/
+.DS_Store
+#.gitignore
+develop_server.sh

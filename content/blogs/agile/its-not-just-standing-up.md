@@ -62,6 +62,8 @@ Team Leader组织大家进行传统的结束仪式：1...2...3... Excelsior（�
 - 如何保持活力？
 - 如何鼓励自主性？
 
+
+
 ##### 1. 谁参加？
 
 **全体人员**
@@ -74,7 +76,7 @@ Team Leader组织大家进行传统的结束仪式：1...2...3... Excelsior（�
 
 **工作事项**
 
-众所周知的：站会应该专注故事
+专注于故事的站会
 
 > 如果故事对项目很重要，那么故事理应在站会中说话 -- Brian Marick, "Latour 3: Anthrax and standups"
 
@@ -87,7 +89,103 @@ Team Leader组织大家进行传统的结束仪式：1...2...3... Excelsior（�
 
 **昨天，今天，阻碍**
 
-众所周知的：三个问题
+有一些人很健谈，他们往往很容易讲站会变成讲述故事。有一些人在听到问题后总想立即解决问题。长时间的会议总是低效的，与长时间的讨论无直接关系的参与者很容易分心。
+因此，建议采用如下格式：
+
+1. 我昨天完成了什么？
+2. 我今天打算做什么？
+3. 我面临什么样的阻碍？
+
+要满足站立会议目标至少需要回答这三个问题，其他主题应该在站会结束后进行讨论，比如：设计讨论、八卦等等。
+
+> Olve Maudal建议将问题的顺序反过来以便强调问题的正确顺序：
+
+> 1. 有什么阻碍吗？
+> 2. 你今天正在做什么？
+> 3. 你昨天完成了什么？
+
+> [*-- Olve Maudal, "Daily Stand-up Meetings - Perhaps the third question should go first?"*
+](http://olvemaudal.wordpress.com/2008/05/15/daily-stand-up-meetings-%20perhaps-the-third-question-should-go-first/)
+
+Lasse Koskela建议采用其他的问题格式以便强调团队成员不应该是在给领导汇报：
+
+> 每个团队成员是在跟团队交流，每个团队成员按顺序为其他成员提供如下三个信息：
+
+> 1. 昨天的站会之后，我做的事
+> 2. 今天我准备将会完成的事
+> 3. 我需要其他人帮我清除的阻碍
+
+> [*-- Lasse Koskela, "On Scrum and the curse of the three questions*](http://radio.javaranch.com/lasse/2006/05/07/1147034972559.html)
+
+Jonathan Rasmussen提供了不同的词以提高站会的活跃度：
+> 1. 你昨天做什么来改变世界(What you did to change the world yesterday)
+> 2. 你今天将会如何改变世界(How you are going to crush it today)
+> 3. 你将如何消除那些挡你路的阻碍(How you are going to blast through any obstacles unfortunate enough to be standing in your way)
+
+> 和只是站在那儿更新信息相比，回答这种问题能提升站会的活跃度。
+> 
+> [*-- Jonathan Rasmusson, The Agile Samura*](https://www.amazon.com/gp/product/1934356581?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1934356581)
+
+也有很多的团队已经引入了额外的问题，[Buffer 就引入了一些问题以展现他们为自我改进而做的事情](http://joel.is/an-invitation-to-come-and-hack-on-buffer/)
+
+Thomas Cagley建议[识别风险](https://tcagley.wordpress.com/2014/07/18/stand-up-meetings-add-ons/)
+
+Mark Levison发现增加目标明确的改进问题很有用，他修改了最后两个问题以匹配特定的上下文
+> 1. 你昨天完成了什么？
+> 2. 你承诺今天做什么？
+> 3. 你的阻碍是什么？
+> 4. 你昨天发现了什么代码坏味道、缺失的单元测试了吗？
+> 5. 你昨天做了什么改进代码了吗？
+
+> [-- Mark Levison, "Daily Stand-Up Variations"](https://agilepainrelief.com/notesfromatooluser/2011/01/daily-stand-up-variations.html#.VsoT4ZMrLeQ)
+
+但是，问题的形式远没有问题的答案重要，如果提供的信息并不是那么的结构化，也不用墨守成规。随着团队的成熟，你会发现你想要调整问题的结构，这就已经反映出这种模式是如何进化的了。
+
+更大的问题是，**昨天、今天、阻碍**是否让大家更加关注个人承若，而不是关注正确的事。这就导致**Walk the Board**。
+
+
+**改进板**
+
+又名：阻塞板、阻碍板、改善公报
+
+站会中提出的阻碍没有被清除或者没有及时的处理。因此，将提出的阻碍放到改进板上。改进板是一个公开可见的用于识别阻碍并跟踪处理过程的白板或者图表。改进板可以在站会之外更新并且作为一个更直接，也许少对抗的方式来面对最初提出的阻碍。一个常见的错误是改进板写的不够大以至于人们不能在远处就能看清阻碍。
+
+将问题写下来这个简单的行为可以明显地减少额外的沟通。即便并不是每个人都同意某个特定项是阻碍，将其写下来并在会后进行讨论也是有价值的。
+标注每个阻碍发生的次数，次数高的问题一般需要优先处理。
+
+改进板的设计有多种形式。比如一个张类似如下结构的表：
+
+
+|Problem|Count|Containment|Countermeasure|Status|
+|---|---|---|---|---|
+|Name of problem|Ongoing count of occurrences|Short-term solution|Long-term solution based on root cause analysis|Plan - Do - Check - Act|
+|问题名称|持续发生的次数|暂时的解决办法|基于根本原因分析的最终解决办法|计划-执行-检查-纠正|
+
+
+另一种类似任务板的样式：
+
+|Todo|In Progress|Done|
+|:---|:---|:---|
+|Index cards representing raised obstacles	|Obstacle cards move here when we’re actively working on them|Obstacle cards move here when we’ve resolved them|
+|提出的阻碍索引卡片| 当我们处理阻碍时，将阻碍卡移到此处| 当我们处理完阻碍时，将阻碍卡移到此处|
+
+但是，如果提出了太多的阻碍，团队却无能为力解决，改进板就会变成抱怨板。
+
+
+##### 3. 我们按什么样的顺序讨论？
+
+To Be Continue...
+
+
+
+
+
+
+
+
+
+
+
 
 
 

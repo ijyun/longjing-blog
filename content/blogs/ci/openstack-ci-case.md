@@ -47,13 +47,15 @@ Image: /ci/openstack-ci-case/openstack-software-diagram.png
 <div style="height:300px"></div>
 
 ### 一、OpenStack介绍
-OpenStack是开源的云计算（IaaS）平台
+OpenStack是一个旨在为公共及私有云的建设与管理提供软件的开源项目，属于云计算（IaaS）平台，其包含众多子项目，有大量的机构与厂商和开发者参与到OpenStack的生态中。
 
 ![openstack](http://docs.openstack.org/infra/publications/overview/images/openstack-software-diagram.png)
 
 
 #### 0. 架构图
-![architecture](http://docs.openstack.org/infra/publications/processing-ci-log-events/images/openstack-logical-arch-folsom.jpg =800x)
+
+![architecture](/images/ci/openstack-ci-case/openstack-logical-arch-folsom.png)
+
 #### 1. 项目列表
 * nova (compute)
 * swift (object storage)
@@ -93,6 +95,7 @@ OpenStack是开源的云计算（IaaS）平台
 3. 10+ Jenkins Masters
 4. 1000+ Slaves
 5. 24000+ Jobs per day
+6. 300+ Developer
 
 #### 5. CI挑战
 
@@ -146,14 +149,18 @@ OpenStack是开源的云计算（IaaS）平台
 ##### 开发环境
 
 **Python**
+
 * Ubuntu LTS (2.7, 3.4, pypy)
 * PEP-8 standards
 * Oslo (common libraries)
 * virtualenv/pip/tox
 
 **Freenode IRC (#openstack-dev, #openstack-meeting)**
+
 **DevStack**
+
 **Tests run on all newly submitted changes**
+
 **Code merges are gated on tests**
 
 
@@ -435,10 +442,23 @@ Jenkins Job BUilder配置实例[:http://git.openstack.org/cgit/openstack-infra/p
 
 #### 8. 流水线配置-Zuul
 Zuul是面向流水线的项目主干门禁与自动化系统。和Gerrit与Jenkins有接口，配置灵活（layout.yaml），适合多种项目的自动化，可以并行执行一系列变更的测试。
-Zuul的两个主要组件：scheduler和merger。
+Zuul的两个主要组件：scheduler和merger。Zuul保证合并进入源代码库的变更都是通过测试的。
+
 
 OpenStack的Zuul Pipelines类型包括：check、gate、release、silent、experimental、periodic...
 Zuul会监测Gerrit的事件以触发相应的Pipeline及其对应的Job。
+
+
+##### 组件
+
+* Connection（Gerrit，SMTP）
+* Trigger（Gerrit，Timer，Zuul）
+* Reporters（Gerrit，SMTP）
+* Zuul Cloner
+* Launchers（Gearman Jenkins Plugin）
+* Statsd reporting（Metrics）
+* Zuul Client
+
 
 * [文档资料](http://docs.openstack.org/infra/zuul/)
 * [源代码](https://github.com/openstack-infra/zuul)
@@ -647,7 +667,9 @@ Gearman是分布式队列系统，分发合适的任务到多台计算机上，�
 ###### Gearman Client示例
 
 Python Client：[https://github.com/zaro0508/gearman-plugin-client](https://github.com/zaro0508/gearman-plugin-client)
+
 Java Client：[https://git.openstack.org/cgit/openstack-infra/gearman-plugin/tree/src/main/java/hudson/plugins/gearman/example](https://git.openstack.org/cgit/openstack-infra/gearman-plugin/tree/src/main/java/hudson/plugins/gearman/example)
+
 Zuul Client：[http://git.openstack.org/cgit/openstack-infra/zuul](http://git.openstack.org/cgit/openstack-infra/zuul)
 
 ###### 特性
@@ -678,11 +700,11 @@ Zuul Client：[http://git.openstack.org/cgit/openstack-infra/zuul](http://git.op
 
 ##### Jenkins集群化（冗余）
 
-![redundant jenkins](http://docs.openstack.org/infra/publications/gearman-plugin/images/gearman-flow1.png)
+![redundant jenkins](/images/ci/openstack-ci-case/gearman-flow1.png)
 
 ##### Gearman-Jenkins集成
 
-![Gearman-Jenkins Integration](http://docs.openstack.org/infra/publications/gearman-plugin/images/gearman-flow3.png)
+![Gearman-Jenkins Integration](/images/ci/openstack-ci-case/gearman-flow3.png)
 
 ![Jenkins Buildables as Gearman Functions](http://docs.openstack.org/infra/publications/gearman-plugin/images/gearman-flow4.png)
 Meta-jobs：
@@ -695,6 +717,10 @@ Meta-jobs：
 Bug Integration - Launchpad
 
 #### 测试分类
+
+##### 代码风格检测
+
+
 
 ##### Unit tests
 1. 测试代码
@@ -711,10 +737,17 @@ Bug Integration - Launchpad
 2. 在真实环境中测试
 3. 执行耗时
 
+其他：
+Test Repository 框架，实现并行测试
+Zuul可以实现测试并行执行，又能保持测试顺序不变
+
+一个Jenkins master带100个slave之后就会遇到问题
+
+自动化解决的问题不是今天的问题，而是三个月之后的问题。
 
 #### Devstack-Gate
-开发者工具
-
+开发者工具，结合云
+http://docs.openstack.org/infra/publications/devstack-tutorial/
 
 Git Review
 
@@ -743,3 +776,5 @@ Design
 3. [Continuous integration automation: An outline of OpenStack CI components](http://docs.openstack.org/infra/publications/ci-automation)
 4. [Scaling Your Jenkins Jobs：Jenkins Job Builder](http://docs.openstack.org/infra/publications/jenkins-job-builder)
 5. [Multiple Jenkins Masters：with Jenkins Gearman Plugin](http://docs.openstack.org/infra/publications/gearman-plugin)
+6. [Interview-openstack-ci-test-automation](http://www.infoq.com/cn/articles/interview-openstack-ci-test-automation)
+7. [Processing-ci-log-events](http://docs.openstack.org/infra/publications/processing-ci-log-events)

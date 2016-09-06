@@ -1,6 +1,6 @@
 Title: Jenkins性能提升妙招
-Date: 2016-09-06 10:300
-Modified: 2016-09-06 10:300
+Date: 2016-09-06 10:30
+Modified: 2016-09-06 10:30
 Category: 持续集成,翻译
 Tags: Jenkins
 Slug: jenkins-performance-hints

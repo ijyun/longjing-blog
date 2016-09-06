@@ -1,14 +1,18 @@
 Title: Jenkins性能提升妙招
 Date: 2016-09-06 10:300
 Modified: 2016-09-06 10:300
-Category: 持续集成
+Category: 持续集成,翻译
 Tags: Jenkins
 Slug: jenkins-performance-hints
 Authors: 龙井
 Summary: Jenkins CI Server的可扩展性存在很大局限性。但是对大多数应用场景，Jenkins的性能已经足够使用。可以参考文章 installations with hundreds of slaves running about 10k builds daily。虽然Jenkins配置很简单，但是也有一些方法帮助搭建和维护压力较大的Jenkins。如下有一些建议，包括Master配置、Slave配置、Job配置和一些多Master配置，可以帮助我们保持Jenkins高效运行。
 
 
-Jenkins CI Server的可扩展性存在很大局限性。但是对大多数应用场景，Jenkins的性能已经足够使用。可以参考文章 installations with hundreds of slaves running about 10k builds daily。虽然Jenkins配置很简单，但是也有一些方法帮助搭建和维护压力较大的Jenkins。如下有一些建议，包括Master配置、Slave配置、Job配置和一些多Master配置，可以帮助我们保持Jenkins高效运行。
+
+原文链接:[http://soldering-iron.blogspot.com/2014/01/jenkins-performance-hints.html](http://soldering-iron.blogspot.com/2014/01/jenkins-performance-hints.html)
+
+
+Jenkins CI Server的可扩展性存在很大局限性。但是对大多数应用场景，Jenkins的性能已经足够使用。可以参考文章 [installations with hundreds of slaves running about 10k builds daily](http://soldering-iron.blogspot.com/2014/01/big-jenkins-servers-of-2013.html)。虽然Jenkins配置很简单，但是也有一些方法帮助搭建和维护压力较大的Jenkins。如下有一些建议，包括Master配置、Slave配置、Job配置和一些多Master配置，可以帮助我们保持Jenkins高效运行。
 
 ### 1. Jenkins Master Configuration
 

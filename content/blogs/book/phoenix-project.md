@@ -72,7 +72,7 @@ Ruddy Lee老师说他跟工程师打赌，工程师一般都翻不到36也就不
 
    **重点问题：没有实质上的变更管理，运维工作处于失控状态**
 
-   ![1](salary_system_failure.png)
+   ![1](/images/booknotes/phoenix-project/salary_system_failure.png)
 
 2. SOX-404审计合规问题
 
@@ -258,7 +258,7 @@ Ruddy Lee老师说他跟工程师打赌，工程师一般都翻不到36也就不
 
 #### 
 
-### 第三部分：立地成佛
+### 第三部分：涅槃重生
 
 我将第三部分总结为“**涅槃重生**”，我想这也就是作者将书名叫做凤凰项目的原因，在这个阶段，比尔带领研发团队、运维团队、测试团队和业务团队一起快速交付了独角兽项目。为公司实现了盈利，赢得了竞争。
 
@@ -266,11 +266,11 @@ Ruddy Lee老师说他跟工程师打赌，工程师一般都翻不到36也就不
 
    如图所示，针对自己项目的详细分析，完成价值流图梳理和设计，可以帮助我们识别主要问题环境，优化价值流速
 
-   ![](/images/booknotes/phoenix-project/devops_data_visual_process.png)
+   ​	![](/images/booknotes/phoenix-project/devops_data_visual_process.png)
 
 2. 持续改进，让团队形成持续的竞争力
 
-![](/images/booknotes/phoenix-project_images/new_life.png)
+![](/images/booknotes/phoenix-project/new_life.png)
 
 ### 
 
